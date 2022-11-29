@@ -1,0 +1,169 @@
+Delivered-To: eganmogi@gmail.com
+Received: by 2002:a05:612c:11cf:b0:30f:56a1:e5cf with SMTP id fc15csp8286120vqb;
+        Mon, 28 Nov 2022 07:52:43 -0800 (PST)
+X-Received: by 2002:a63:4b16:0:b0:476:d0b8:1117 with SMTP id y22-20020a634b16000000b00476d0b81117mr45291570pga.104.1669650763603;
+        Mon, 28 Nov 2022 07:52:43 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1669650763; cv=none;
+        d=google.com; s=arc-20160816;
+        b=H6uTkSLYGsjVFkxEk40x7/eqjSvb59bRecwnw47pcIRd80FmpxuTivYcKOPS27xwOd
+         WpAVqQ66WMV/6JMxNV1IZI9X/qFcIHghMQFBTj5cHvoNH0kCfFsZOXvoHwX9hUo+aJXo
+         1e3GvK0i+nsFlTm1ED8v0N5NCXwi+MJzeOoIUpGMc8XMqof9Dy4ij1F5i8RxXToqiyW6
+         4tqwVi2qUkZHObsKcc+ZmCp+syNQ5KWx+SMaJYRsd3lgKI3e+5QFhovhZ4iw3d0+ShFj
+         R66FOvXCn7fJCT+ya+7hHHl0kdxKugrEyZSLOdC2Oc9h50pvfSgJkFKRNFf7dK4ElU/6
+         HWfg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:from:subject:message-id:feedback-id:date:mime-version
+         :dkim-signature;
+        bh=8eV4+O47euqZfP82UR+pA6oKeYx5FUpJgqX37anfTRY=;
+        b=A/oybQ6LvhoYp3s+dmXq3krDImSI60/oo0liopvMXQk3txXlmDla9NyR1W/tAnM8mr
+         KgsmcdUsy9wjLRtnQmJt/Njac/p2+FuhFWrA1J05IKn0St0hO7dgYz0xoeZVQCi1YtKC
+         UKPFE0X2/U332P85j7zfqXTh4nv4sE8biw1x4cujHDmsS3SwmPpBv+b6SNcM+Vuq6y19
+         +Woyt2IDgKdkK2GlG0yrhAF8APZNEXjxLgi1pMzGNaO9l+xBUCBR/bD8Udk686bU3eAp
+         wDAevJJtmHgfrxzFH04aXdieb1sUXkAy+kBaQFQ4d+HZXKUTCc5GOCCHIUcBE9rd9eBu
+         d3bQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@accounts.google.com header.s=20210112 header.b="3/4vluAB";
+       spf=pass (google.com: domain of 3s9meywgtcdqde-hufboqssekdji.weewbu.secuwqdcewywcqyb.sec@gaia.bounces.google.com designates 209.85.220.73 as permitted sender) smtp.mailfrom=3S9mEYwgTCDQde-hUfboQSSekdji.WeeWbU.SecUWQdceWYWcQYb.Sec@gaia.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=accounts.google.com
+Return-Path: <3S9mEYwgTCDQde-hUfboQSSekdji.WeeWbU.SecUWQdceWYWcQYb.Sec@gaia.bounces.google.com>
+Received: from mail-sor-f73.google.com (mail-sor-f73.google.com. [209.85.220.73])
+        by mx.google.com with SMTPS id g9-20020a636b09000000b0042fdbdcbcecsor4787564pgc.13.2022.11.28.07.52.43
+        for <eganmogi@gmail.com>
+        (Google Transport Security);
+        Mon, 28 Nov 2022 07:52:43 -0800 (PST)
+Received-SPF: pass (google.com: domain of 3s9meywgtcdqde-hufboqssekdji.weewbu.secuwqdcewywcqyb.sec@gaia.bounces.google.com designates 209.85.220.73 as permitted sender) client-ip=209.85.220.73;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@accounts.google.com header.s=20210112 header.b="3/4vluAB";
+       spf=pass (google.com: domain of 3s9meywgtcdqde-hufboqssekdji.weewbu.secuwqdcewywcqyb.sec@gaia.bounces.google.com designates 209.85.220.73 as permitted sender) smtp.mailfrom=3S9mEYwgTCDQde-hUfboQSSekdji.WeeWbU.SecUWQdceWYWcQYb.Sec@gaia.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=accounts.google.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=accounts.google.com; s=20210112;
+        h=to:from:subject:message-id:feedback-id:date:mime-version:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=8eV4+O47euqZfP82UR+pA6oKeYx5FUpJgqX37anfTRY=;
+        b=3/4vluABP/onBXBpBB0cvyEqZ1CVZd4PnrWo2brrZej97Klly0xh3QoyDWIhqoa3o8
+         aPYUo2RxTkI9fkRg9iYVCgTfTmuvTvJ6Xed3VmdKuwBUuhWTjtA3Gl6FWRnez9NID/bB
+         C+0c6p7ESeQXKMouWrPovN9jtBY+QFafoKy7m6bm25lHg3ISpZhU3lZ5QbaqI/u5HDrh
+         AcvA5W75gXt2mGCcvVLnxPDcTKKPY7VmR+gzjy1W44uZKZ1/7dBTnSKSWcGDOyLILwBS
+         D+ScfzdTAuxGFnHZNdnhQ5Y80GGp4yTnKhLA/lEzWxLteCl2wi2uKiQ62GRPnFWMS+WW
+         +nIQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=to:from:subject:message-id:feedback-id:date:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=8eV4+O47euqZfP82UR+pA6oKeYx5FUpJgqX37anfTRY=;
+        b=t3V/0AM4kktBLkhNnoMbXSFpPPXbrghWHeteAzliw37IgmSwAUxU53X34DcGp1K9wF
+         VfWuH0A2EFFXNDo+djZoGi/wvmmAM8IF79eVgOcCjVuwznC5phpEdaf+xlvXrWtOcIDh
+         bvtAZKucCcm8yC4sgsnAHHwr2dEZfEyv6l5r3A9Q0RgUX2wZ9OJ0tsFO/EsqZp3Df0P4
+         BGjAz33wQfE5bUweS1o6yO6UNysBoz7/tMAZoDRQgKiu4mnIkexFu7ohhiapmMVV4VDe
+         0rerbXLO1FhfNb+h6MQG17GYdd7IsWUWCfibxLOftitIBSWa9aMi3+UEvGmnncEs4wqK
+         d+LA==
+X-Gm-Message-State: ANoB5pls2z95mAMO3KfD0oSjJocmgF/UhPIVMUdUyqaHwx2sagVApWs/
+	pjjRrW3CPA3LG/Jxvtny+663KT3WAugrs2FWYkrZog==
+X-Google-Smtp-Source: AA0mqf4hyvfLbQKK3/KdaI+24QS/5X0FEbOYSXuE+r9eLn1yFc2hdsQD1ts459AWtAXMe8snw7kJrGuZ+/Q41F22iLVA3w==
+MIME-Version: 1.0
+X-Received: by 2002:a63:5d45:0:b0:476:dd29:75a8 with SMTP id
+ o5-20020a635d45000000b00476dd2975a8mr28240844pgm.547.1669650763346; Mon, 28
+ Nov 2022 07:52:43 -0800 (PST)
+Date: Mon, 28 Nov 2022 15:52:42 GMT
+X-Account-Notification-Type: 16
+Feedback-ID: 16:account-notifier
+X-Notifications: 7e9f6e3721180000
+X-Notifications-Bounce-Info: AZFyLSSL8LMVcjSWBlK51XYL0HEwzDE3dHSnlfdNqronlXWJ7XmKyN4dlJ7fkxPi8Izp38hX54LvNl-CRv9bgxKRsYll_L_5Vn1qhjl-MhBFY8JKZGXJziAKTbA2eatPYt6l2VL1d0PYLX4soF9xc4fI2-b_Jz9rJwR5L3co6U0rtnR6_O952a9Xq-3qAANjAwNjA0MDQxNTM1NTk2OTMzMg
+Message-ID: <lbXxDdKjaTkEbeolFEwiBQ@notifications.google.com>
+Subject: 2-Step Verification turned on
+From: Google <no-reply@accounts.google.com>
+To: eganmogi@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000a5f3ec05ee89dc70"
+
+--000000000000a5f3ec05ee89dc70
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
+
+W2ltYWdlOiBHb29nbGVdDQoyLVN0ZXAgVmVyaWZpY2F0aW9uIHR1cm5lZCBvbg0KDQoNCmVnYW5t
+b2dpQGdtYWlsLmNvbQ0KDQpZb3VyIEdvb2dsZSBBY2NvdW50IGVnYW5tb2dpQGdtYWlsLmNvbSBp
+cyBub3cgcHJvdGVjdGVkIHdpdGggMi1TdGVwDQpWZXJpZmljYXRpb24uIFdoZW4geW91IHNpZ24g
+aW4gb24gYSBuZXcgb3IgdW50cnVzdGVkIGRldmljZSwgeW914oCZbGwgbmVlZA0KeW91ciBzZWNv
+bmQgZmFjdG9yIHRvIHZlcmlmeSB5b3VyIGlkZW50aXR5Lg0KDQoqRG9uJ3QgZ2V0IGxvY2tlZCBv
+dXQhKg0KWW91IGNhbiBhZGQgYSBiYWNrdXAgcGhvbmUgb3IgZ2V0IGJhY2t1cCBjb2RlcyB0byB1
+c2Ugd2hlbiB5b3UgZG9u4oCZdCBoYXZlDQp5b3VyIHNlY29uZCBmYWN0b3Igd2l0aCB5b3UuDQpZ
+b3UgY2FuIHJldmlldyB5b3VyIDJTViBzZXR0aW5ncw0KPGh0dHBzOi8vYWNjb3VudHMuZ29vZ2xl
+LmNvbS9BY2NvdW50Q2hvb3Nlcj9FbWFpbD1lZ2FubW9naUBnbWFpbC5jb20mY29udGludWU9aHR0
+cHM6Ly9teWFjY291bnQuZ29vZ2xlLmNvbS9zaWduaW5vcHRpb25zL3R3by1zdGVwLXZlcmlmaWNh
+dGlvbj9yZm4lM0QxNiUyNnJmbmMlM0QxJTI2ZWlkJTNEMTUxMDQ5MzIwODUwMjczODU2NiUyNmV0
+JTNEMD4NCnRvIG1ha2UgY2hhbmdlcy4NCllvdSBjYW4gYWxzbyBzZWUgc2VjdXJpdHkgYWN0aXZp
+dHkgYXQNCmh0dHBzOi8vbXlhY2NvdW50Lmdvb2dsZS5jb20vbm90aWZpY2F0aW9ucw0KWW91IHJl
+Y2VpdmVkIHRoaXMgZW1haWwgdG8gbGV0IHlvdSBrbm93IGFib3V0IGltcG9ydGFudCBjaGFuZ2Vz
+IHRvIHlvdXINCkdvb2dsZSBBY2NvdW50IGFuZCBzZXJ2aWNlcy4NCsKpIDIwMjIgR29vZ2xlIExM
+QywgMTYwMCBBbXBoaXRoZWF0cmUgUGFya3dheSwgTW91bnRhaW4gVmlldywgQ0EgOTQwNDMsIFVT
+QQ0K
+--000000000000a5f3ec05ee89dc70
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html lang=3D"en"><head><meta name=3D"format-detection" cont=
+ent=3D"email=3Dno"/><meta name=3D"format-detection" content=3D"date=3Dno"/>=
+<style nonce=3D"qMq2vLlpgQqI07vos-NnPA">.awl a {color: #FFFFFF; text-decora=
+tion: none;} .abml a {color: #000000; font-family: Roboto-Medium,Helvetica,=
+Arial,sans-serif; font-weight: bold; text-decoration: none;} .adgl a {color=
+: rgba(0, 0, 0, 0.87); text-decoration: none;} .afal a {color: #b0b0b0; tex=
+t-decoration: none;} @media screen and (min-width: 600px) {.v2sp {padding: =
+6px 30px 0px;} .v2rsp {padding: 0px 10px;}} @media screen and (min-width: 6=
+00px) {.mdv2rw {padding: 40px 40px;}} </style><link href=3D"//fonts.googlea=
+pis.com/css?family=3DGoogle+Sans" rel=3D"stylesheet" type=3D"text/css" nonc=
+e=3D"qMq2vLlpgQqI07vos-NnPA"/></head><body style=3D"margin: 0; padding: 0;"=
+ bgcolor=3D"#FFFFFF"><table width=3D"100%" height=3D"100%" style=3D"min-wid=
+th: 348px;" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" lang=3D"en"><t=
+r height=3D"32" style=3D"height: 32px;"><td></td></tr><tr align=3D"center">=
+<td><div itemscope itemtype=3D"//schema.org/EmailMessage"><div itemprop=3D"=
+action" itemscope itemtype=3D"//schema.org/ViewAction"><link itemprop=3D"ur=
+l" href=3D"https://accounts.google.com/AccountChooser?Email=3Deganmogi@gmai=
+l.com&amp;continue=3Dhttps://myaccount.google.com/signinoptions/two-step-ve=
+rification?rfn%3D16%26rfnc%3D1%26eid%3D1510493208502738566%26et%3D0"/><meta=
+ itemprop=3D"name" content=3D"Review Activity"/></div></div><table border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"padding-bottom: 20px; m=
+ax-width: 516px; min-width: 220px;"><tr><td width=3D"8" style=3D"width: 8px=
+;"></td><td><div style=3D"border-style: solid; border-width: thin; border-c=
+olor:#dadce0; border-radius: 8px; padding: 40px 20px;" align=3D"center" cla=
+ss=3D"mdv2rw"><img src=3D"https://www.gstatic.com/images/branding/googlelog=
+o/2x/googlelogo_color_74x24dp.png" width=3D"74" height=3D"24" aria-hidden=
+=3D"true" style=3D"margin-bottom: 16px;" alt=3D"Google"><div style=3D"font-=
+family: &#39;Google Sans&#39;,Roboto,RobotoDraft,Helvetica,Arial,sans-serif=
+;border-bottom: thin solid #dadce0; color: rgba(0,0,0,0.87); line-height: 3=
+2px; padding-bottom: 24px;text-align: center; word-break: break-word;"><div=
+ style=3D"font-size: 24px;">2-Step Verification turned on </div><table alig=
+n=3D"center" style=3D"margin-top:8px;"><tr style=3D"line-height: normal;"><=
+td align=3D"right" style=3D"padding-right:8px;"><img width=3D"20" height=3D=
+"20" style=3D"width: 20px; height: 20px; vertical-align: sub; border-radius=
+: 50%;;" src=3D"https://lh3.googleusercontent.com/a/ALm5wu1fD9kc3l6zL2dSkMD=
+5XfWc6n-_K-sgog9fcRQT=3Ds96" alt=3D""></td><td><a style=3D"font-family: &#3=
+9;Google Sans&#39;,Roboto,RobotoDraft,Helvetica,Arial,sans-serif;color: rgb=
+a(0,0,0,0.87); font-size: 14px; line-height: 20px;">eganmogi@gmail.com</a><=
+/td></tr></table> </div><div style=3D"font-family: Roboto-Regular,Helvetica=
+,Arial,sans-serif; font-size: 14px; color: rgba(0,0,0,0.87); line-height: 2=
+0px;padding-top: 20px; text-align: left;"><p>Your Google Account eganmogi@g=
+mail.com is now protected with 2-Step Verification. When you sign in on a n=
+ew or untrusted device, you=E2=80=99ll need your second factor to verify yo=
+ur identity.</p><p><b>Don't get locked out!</b><br>You can add a backup pho=
+ne or get backup codes to use when you don=E2=80=99t have your second facto=
+r with you.</p>You can <a href=3D"https://accounts.google.com/AccountChoose=
+r?Email=3Deganmogi@gmail.com&amp;continue=3Dhttps://myaccount.google.com/si=
+gninoptions/two-step-verification?rfn%3D16%26rfnc%3D1%26eid%3D1510493208502=
+738566%26et%3D0" style=3D"text-decoration: none; color: #4285F4;" target=3D=
+"_blank">review your 2SV settings</a>  to make changes.</div><div style=3D"=
+padding-top: 20px; font-size: 12px; line-height: 16px; color: #5f6368; lett=
+er-spacing: 0.3px; text-align: center">You can also see security activity a=
+t<br><a style=3D"color: rgba(0, 0, 0, 0.87);text-decoration: inherit;">http=
+s://myaccount.google.com/notifications</a></div></div><div style=3D"text-al=
+ign: left;"><div style=3D"font-family: Roboto-Regular,Helvetica,Arial,sans-=
+serif;color: rgba(0,0,0,0.54); font-size: 11px; line-height: 18px; padding-=
+top: 12px; text-align: center;"><div>You received this email to let you kno=
+w about important changes to your Google Account and services.</div><div st=
+yle=3D"direction: ltr;">&copy; 2022 Google LLC, <a class=3D"afal" style=3D"=
+font-family: Roboto-Regular,Helvetica,Arial,sans-serif;color: rgba(0,0,0,0.=
+54); font-size: 11px; line-height: 18px; padding-top: 12px; text-align: cen=
+ter;">1600 Amphitheatre Parkway, Mountain View, CA 94043, USA</a></div></di=
+v></div></td><td width=3D"8" style=3D"width: 8px;"></td></tr></table></td><=
+/tr><tr height=3D"32" style=3D"height: 32px;"><td></td></tr></table></body>=
+</html>
+--000000000000a5f3ec05ee89dc70--
