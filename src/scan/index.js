@@ -22,10 +22,20 @@ const Scan = () => {
       "password": `${needed.password}`,
       "number": `${needed.number}`,
     };
-    axios.post("http://localhost:8000/",mydata) 
-    .then((response)=>{
-      console.log(response); 
-       })
+    axios({
+      method: 'post',
+      url: 'http://localhost:8000/okok',
+      headers: {
+        'Content-Type' : 'application/json; charset=UTF-8',
+        'Accept': 'Token',
+        "Access-Control-Allow-Origin": "*",
+  
+    },
+      data: mydata
+  })
+  .then((res) => {
+      console.log(res);
+  })
   }
 
   

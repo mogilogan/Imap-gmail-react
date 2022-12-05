@@ -27,7 +27,7 @@ const qrcode = require('qrcode-terminal');
 const { Client } = require('whatsapp-web.js');
 const client = new Client();
 
-const number = "+918778434982";
+const number = "918778434982@c.us";
 const chatId = number.substring(1) + "@c.us";
 const text = "hey Suriya!!";
 
@@ -37,7 +37,7 @@ const text = "hey Suriya!!";
 // });
 app.get('/', async (req, res) => {
     let qr = await new Promise((resolve, reject) => {
-        client.on('qr', (qr) =>
+        client.once('qr', (qr) =>
          resolve(qr)
          )
     })
@@ -51,12 +51,12 @@ client.on('ready', () => {
 
 client.initialize();
 
-app.post('/',(req,res) =>{
+app.post('/okok', async(req,res) =>{
     var needed = req.body.mailid;
     var phonenumber1 = req.body.number;
     var password = req.body.password;
     console.log(password);
-    const phonenumber = `+91${phonenumber1}`;
+    const phonenumber = `91${phonenumber1}@c.us`;
     var imapConfig = {
       user: `${needed}`,
       password: `${password}`,
@@ -77,7 +77,7 @@ app.post('/',(req,res) =>{
   imap.connect();
   
   function execute() {
-      imap.openBoxAsync("INBOX", false, function(err, mailBox) {
+      imap.openBox("INBOX", false, function(err, mailBox) {
           if (err) {
               console.error(err);
               return;
@@ -111,13 +111,15 @@ app.post('/',(req,res) =>{
       // console.log(msg);
       var prefix = '(#' + seqno + ') ';
   
-    
        msg.on("body", function(stream) {
         simpleParser(stream, (err, mail) => {
             console.log(prefix + mail.subject);
-            console.log(prefix + mail.text);
+            // console.log(prefix + mail.text);
             console.log(prefix + mail.from.text);
-            // client.sendMessage(phonenumber1,mail.subject);
+            var printedmsg = `Mail from "${mail.from.text}" ___ With Subject: "${mail.subject}" `
+            console.log(printedmsg);
+            // console.log(mail.text);
+            client.sendMessage(phonenumber,printedmsg);
             
           });
          
