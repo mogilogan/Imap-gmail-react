@@ -2,7 +2,6 @@ const express = require('express');
 const cors = require('cors');
 var bodyParser = require('body-parser');
 var Imap = require("imap");
-var MailParser = require("mailparser").MailParser;
 const simpleParser = require('mailparser').simpleParser;
 var Promise = require("bluebird");
 Promise.longStackTraces();
@@ -21,20 +20,9 @@ app.use(bodyParser.urlencoded({
   extended: true
 })); 
 
-
-const qrcode = require('qrcode-terminal');
-
 const { Client } = require('whatsapp-web.js');
 const client = new Client();
 
-const number = "918778434982@c.us";
-const chatId = number.substring(1) + "@c.us";
-const text = "hey Suriya!!";
-
-
-// client.on('qr', qr => {
-//     qrcode.generate(qr, {small: true});
-// });
 app.get('/', async (req, res) => {
     let qr = await new Promise((resolve, reject) => {
         client.once('qr', (qr) =>

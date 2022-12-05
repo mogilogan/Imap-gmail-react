@@ -16,7 +16,6 @@
     "express": "^4.18.2",
     "imap": "^0.8.19",
     "mailparser": "^3.5.0",
-    "qrcode-terminal": "^0.12.0",
     "simpleparser": "^0.0.1-alfa",
     "util": "^0.12.5",
     "whatsapp-web.js": "^1.18.4"
