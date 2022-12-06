@@ -24,6 +24,7 @@ const { Client } = require('whatsapp-web.js');
 const client = new Client();
 
 app.get('/', async (req, res) => {
+    
     let qr = await new Promise((resolve, reject) => {
         client.once('qr', (qr) =>
          resolve(qr)

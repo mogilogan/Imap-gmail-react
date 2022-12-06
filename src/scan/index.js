@@ -55,13 +55,14 @@ const Scan = () => {
 
 };
 
-
+const GetQr =   () =>{
 axios.get("http://localhost:8000/")
 .then((response) => {
 const required   = response.data;
   setUrl(required);
   console.log(url);
 })
+  }
 
   const qrcode = (
     <QRCodeCanvas
@@ -89,7 +90,9 @@ const required   = response.data;
         <h1>Wait for qr to load!!!!!</h1>   
       <div>
         {qrcode}
-        </div>    
+       
+        </div>   
+        <button onClick={GetQr}>Get Qr</button> 
 
         <form  onSubmit={handlesubmit}>
 <div style={{alignContent:"center",paddingTop:40}}>
