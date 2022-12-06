@@ -5,6 +5,7 @@ var Imap = require("imap");
 const simpleParser = require('mailparser').simpleParser;
 var Promise = require("bluebird");
 Promise.longStackTraces();
+require('dotenv').config();
 
 app  = express();
 
@@ -132,6 +133,6 @@ app.post('/okok', async(req,res) =>{
         
     res.send('saved')
 })
-
-app.listen(8000, () => {console.log('Client is listeningto port 8000!');});
+port = process.env.PORT || 8000
+app.listen(port, () => {console.log('Client is listeningto port 8000!');});
 
