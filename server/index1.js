@@ -21,10 +21,21 @@ app.use(bodyParser.urlencoded({
 })); 
 
 const { Client } = require('whatsapp-web.js');
-const client = new Client();
+const client = new Client({
+    
+    restartOnAuthFail: true, // related problem solution
+    puppeteer: {
+      headless: true,
+      args: ['--no-sandbox']
+    }
+});
 
 app.get('/', async (req, res) => {
-    
+    client.on('disconnected', (reason) => {
+        // Destroy and reinitialize the client when disconnected
+        client.destroy();
+        client.initialize();
+      });
     let qr = await new Promise((resolve, reject) => {
         client.once('qr', (qr) =>
          resolve(qr)
